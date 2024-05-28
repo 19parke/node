@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API Task1</title>
+</head>
+<body>
+    <h1 id="number"></h1>
+    <h1 id="name"></h1>
+    <h1 id="price"></h1>
+    <h1 id="brand"></h1>
+
+<!-- <h1 id="result"></h1> -->
+
+</body>
+<script>
+    fetch("http://localhost:8000/api/product/3")
+    // json으로 바꿔주고
+    .then((response)=>response.json())
+    // json으로 파싱됐기 때문에 객체 들어올 것임, product객체가 들어올것임
+    .then((product)=>{
+        console.log(product);
+        document.getElementById("number").innerText = product.number
+        document.getElementById("name").innerText = product.name
+        document.getElementById("price").innerText = product.price
+        document.getElementById("brand").innerText = product.brand
+    })
+    .catch(console.error)
+</script>
+</html>
